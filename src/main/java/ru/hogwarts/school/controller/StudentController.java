@@ -31,9 +31,9 @@ public class StudentController {
         return studentService.addStudent(student);
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<Student> editStudent(@RequestBody Student student,@PathVariable Long id) {
-        Student foundStudent = studentService.editStudent(id, student);
+    @PutMapping
+    public ResponseEntity<Student> editStudent(@RequestBody Student student) {
+        Student foundStudent = studentService.updateStudent( student);
         if (foundStudent == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }

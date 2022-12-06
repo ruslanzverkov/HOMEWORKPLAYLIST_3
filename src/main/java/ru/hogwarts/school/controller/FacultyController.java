@@ -32,8 +32,8 @@ public class FacultyController {
     }
 
     @PutMapping
-    public ResponseEntity<Faculty> editFaculty(@PathVariable long id, @RequestBody Faculty faculty) {
-        Faculty foundFaculty = facultyService.editFaculty(id, faculty);
+    public ResponseEntity<Faculty> updateFaculty( @RequestBody Faculty faculty) {
+        Faculty foundFaculty = facultyService.updateFaculty( faculty);
         if (foundFaculty == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
